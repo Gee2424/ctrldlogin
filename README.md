@@ -1,7 +1,7 @@
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/arkdemiatop/ctrldlogin/main/assets/logo-dark.svg">
-    <img alt="ctrldlogin" src="https://raw.githubusercontent.com/arkdemiatop/ctrldlogin/main/assets/logo-light.svg" width="420">
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Gee2424/ctrldlogin/main/assets/logo-dark.svg">
+    <img alt="ctrldlogin" src="https://raw.githubusercontent.com/Gee2424/ctrldlogin/main/assets/logo-light.svg" width="420">
   </picture>
 </p>
 
@@ -10,10 +10,10 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/arkdemiatop/ctrldlogin/releases"><img alt="GitHub Release" src="https://img.shields.io/github/v/release/arkdemiatop/ctrldlogin?style=flat-square"></a>
-  <a href="https://github.com/arkdemiatop/ctrldlogin/releases"><img alt="Platform" src="https://img.shields.io/badge/platform-Windows%20%7C%20macOS%20%7C%20Linux-blue?style=flat-square"></a>
-  <a href="LICENSE"><img alt="License" src="https://img.shields.io/github/license/arkdemiatop/ctrldlogin?style=flat-square"></a>
-  <a href="https://arkdemiatop.github.io/ctrldlogin/"><img alt="Docs" src="https://img.shields.io/badge/docs-vitepress-blue?style=flat-square"></a>
+  <a href="https://github.com/Gee2424/ctrldlogin/releases"><img alt="GitHub Release" src="https://img.shields.io/github/v/release/Gee2424/ctrldlogin?style=flat-square"></a>
+  <a href="https://github.com/Gee2424/ctrldlogin/releases"><img alt="Platform" src="https://img.shields.io/badge/platform-Windows%20%7C%20macOS%20%7C%20Linux-blue?style=flat-square"></a>
+  <a href="LICENSE"><img alt="License" src="https://img.shields.io/github/license/Gee2424/ctrldlogin?style=flat-square"></a>
+  <a href="https://gee2424.github.io/ctrldlogin/"><img alt="Docs" src="https://img.shields.io/badge/docs-vitepress-blue?style=flat-square"></a>
 </p>
 
 ---
@@ -34,7 +34,7 @@
 
 ## Download
 
-Get the latest builds on the [Releases page](https://github.com/arkdemiatop/ctrldlogin/releases).
+Get the latest builds on the [Releases page](https://github.com/Gee2424/ctrldlogin/releases).
 
 | Platform | Format | Size |
 |----------|--------|------|
@@ -70,7 +70,7 @@ Modern dark/light themed UI with a three-panel layout (folders, profiles, detail
 
 ## Quick Start
 
-1. Download the appropriate package for your OS from the [Releases page](https://github.com/arkdemiatop/ctrldlogin/releases)
+1. Download the appropriate package for your OS from the [Releases page](https://github.com/Gee2424/ctrldlogin/releases)
 2. Install and launch the application
 3. Create your first profile and configure its fingerprint
 4. Assign a proxy (optional) and launch the profile
@@ -81,20 +81,26 @@ See the [Getting Started Guide](docs/getting-started.md) for a detailed walkthro
 
 ## Documentation
 
-Full documentation at **[arkdemiatop.github.io/ctrldlogin](https://arkdemiatop.github.io/ctrldlogin/)**
+Full documentation at **[gee2424.github.io/ctrldlogin](https://gee2424.github.io/ctrldlogin/)**
 
 - [Getting Started Guide](docs/getting-started.md)
 - [Feature Overview](docs/features.md)
 - [API Reference](docs/api-guide.md)
 - [FAQ](docs/faq.md)
-- [Privacy](docs/privacy.md)
+- [Privacy Policy](docs/privacy.md)
+- [Terms of Service](docs/terms.md)
+- [Refund Policy](docs/refund.md)
 - [Changelog](CHANGELOG.md)
 
 ---
 
+## Pricing
+
+ctrldlogin has a free tier and three paid tiers — **Starter** ($3/mo), **Pro** ($6/mo), and **Business** ($9/mo) — each raising limits on profiles, proxies, extensions, devices, and team seats. See the app's Settings for current details.
+
 ## License
 
-Distributed under the MIT License. See [LICENSE](LICENSE) for more information.
+ctrldlogin is closed-source, commercial software distributed under a paid subscription model. See the [Software License Agreement](LICENSE) and [Terms of Service](docs/terms.md) for the terms governing your use of the Software.
 
 ---
 

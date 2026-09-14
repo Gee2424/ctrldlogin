@@ -27,7 +27,7 @@ All platforms require **4 GB RAM** and **500 MB free disk space**. The browser e
 
 ## Download
 
-Download the latest release for your operating system from the [Releases page](https://github.com/arkdemiatop/ctrldlogin/releases).
+Download the latest release for your operating system from the [Releases page](https://github.com/Gee2424/ctrldlogin/releases).
 
 | Platform | Formats | Size |
 |----------|---------|------|

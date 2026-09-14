@@ -11,13 +11,13 @@ hero:
   actions:
     - theme: brand
       text: Download Now
-      link: https://github.com/arkdemiatop/ctrldlogin/releases
+      link: https://github.com/Gee2424/ctrldlogin/releases
     - theme: alt
       text: Getting Started
       link: /getting-started
     - theme: alt
       text: View on GitHub
-      link: https://github.com/arkdemiatop/ctrldlogin
+      link: https://github.com/Gee2424/ctrldlogin
 
 features:
   - title: Profile Management

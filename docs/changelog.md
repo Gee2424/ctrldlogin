@@ -67,4 +67,4 @@
 
 ---
 
-For issues or suggestions, use the [GitHub issue tracker](https://github.com/arkdemiatop/ctrldlogin/issues).
+For issues or suggestions, use the [GitHub issue tracker](https://github.com/Gee2424/ctrldlogin/issues).

@@ -68,7 +68,7 @@ Check your firewall or VPN — the download requires access to the browser engin
 
 ### How do I update ctrldlogin?
 
-Currently updates are manual. Download the latest release from the [Releases page](https://github.com/arkdemiatop/ctrldlogin/releases) and install it over your existing installation. Your profiles and data will be preserved since they're stored in a separate data directory (see above).
+Currently updates are manual. Download the latest release from the [Releases page](https://github.com/Gee2424/ctrldlogin/releases) and install it over your existing installation. Your profiles and data will be preserved since they're stored in a separate data directory (see above).
 
 ---
 
@@ -138,7 +138,7 @@ Launch a profile and visit [browserscan.net](https://browserscan.net) to see wha
 
 ### I found a bug — how do I report it?
 
-Open an issue on the [GitHub issue tracker](https://github.com/arkdemiatop/ctrldlogin/issues). Include:
+Open an issue on the [GitHub issue tracker](https://github.com/Gee2424/ctrldlogin/issues). Include:
 - Your operating system and version
 - The ctrldlogin version you're using
 - Steps to reproduce the issue

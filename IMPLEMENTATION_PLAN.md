@@ -128,7 +128,7 @@ Source code (`backend/`, `src-tauri/`, `frontend/`), build scripts, CI workflows
 - [x] Add `assets/icon.png` and `assets/icon.ico` (from private repo icons)
 - [x] Add `LICENSE` (MIT)
 - [ ] **User action:** Enable GitHub Pages in repo settings → branch `main`, folder `/docs`
-- [ ] **User action:** Verify site at `https://arkdemiatop.github.io/ctrldlogin/`
+- [ ] **User action:** Verify site at `https://gee2424.github.io/ctrldlogin/`
 
 ## Sanitization Applied
 
