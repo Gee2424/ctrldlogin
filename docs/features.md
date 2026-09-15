@@ -77,6 +77,19 @@ label,protocol,host,port,username,password
 
 ---
 
+## Team Collaboration
+
+**Share profiles with the people you work with.** Create a team, invite members with a role (Admin or Member), and share any local profile into a team folder as an independent, launchable snapshot — everyone gets their own browser session, never a shared login.
+
+- **Roles** — Owner, Admin, and Member with different management rights
+- **Team folders** — separate from your personal folders, shared with the whole team or specific people
+- **Shared proxies** — encrypted at rest; a Member can use one without ever seeing its password
+- **One person at a time** — a shared profile locks while someone's using it, with an Owner/Admin override
+
+See the full [Team Profile Sharing guide](/teams) for setup steps.
+
+---
+
 ## Interface
 
 **Modern, responsive UI with real-time updates.** Three-panel layout with folders sidebar, profile list, and detail panel. Dark and light themes. Live status updates without page refresh.

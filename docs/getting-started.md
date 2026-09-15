@@ -113,6 +113,7 @@ You can back up or migrate profiles by copying the entire directory.
 ## Next Steps
 
 - Explore [all features](/features)
+- Share profiles with your team — see [Team Profile Sharing](/teams)
 - Read the [API reference](/api-guide) for programmatic control
 - Check the [FAQ](/faq) for common questions
 - Review the [privacy policy](/privacy)

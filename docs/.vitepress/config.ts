@@ -23,6 +23,7 @@ export default defineConfig({
       { text: 'Home', link: '/' },
       { text: 'Getting Started', link: '/getting-started' },
       { text: 'Features', link: '/features' },
+      { text: 'Teams', link: '/teams' },
       { text: 'API', link: '/api-guide' },
       { text: 'FAQ', link: '/faq' },
       { text: 'Changelog', link: '/changelog' },
@@ -57,6 +58,16 @@ export default defineConfig({
           { text: 'Extensions', link: '/features#extensions' },
           { text: 'Organization', link: '/features#organization' },
           { text: 'Interface', link: '/features#interface' },
+        ],
+      },
+      {
+        text: 'Team Profile Sharing',
+        items: [
+          { text: 'Creating a Team', link: '/teams#creating-a-team' },
+          { text: 'Roles', link: '/teams#roles' },
+          { text: 'Sharing a Profile', link: '/teams#sharing-a-profile' },
+          { text: 'Restricting Access', link: '/teams#restricting-access-to-specific-people' },
+          { text: 'One Person at a Time', link: '/teams#one-person-at-a-time' },
         ],
       },
       {
