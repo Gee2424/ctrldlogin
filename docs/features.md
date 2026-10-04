@@ -2,99 +2,103 @@
 
 ## Profile Management
 
-**Full control over your browser profiles.** Create, edit, duplicate, or delete profiles with status tracking (idle, running, crashed, paused). Organize with tags and notes, and search everything with full-text search. Perform batch operations across multiple profiles at once.
+**Each profile is a separate browser identity** — its own fingerprint, proxy, cookies, local storage, cache and history.
 
-- **Full CRUD** — create, read, update, delete profiles
-- **Profile cloning** — duplicate with a new fingerprint seed
-- **Profile reset** — wipe browser data while keeping the fingerprint
-- **Status tracking** — idle, running, crashed, paused
-- **Batch operations** — launch, stop, delete, or assign proxies to multiple profiles at once
-- **Full-text search** — search across profile names, notes, tags, and proxy labels
-- **Activity logging** — full audit trail for all profile actions
-- **Launch history** — count and timestamps per profile
+- **Create, edit, clone, reset** — clone copies a profile with a new fingerprint seed; reset wipes its browser data but keeps the fingerprint *(clone: paid plans)*
+- **Status at a glance** — running, stopped, paused or crashed, updated live
+- **Bulk actions** — select many profiles to launch, stop, move, tag, re-assign a proxy or delete at once
+- **Search** — full-text search across names, notes, tags and proxy labels
+- **Trash** — deleted profiles go to Trash first and can be restored
+- **Pause & resume** — save a running session and pick it up later *(paid plans)*
+- **Activity log** — a history of what happened to each profile *(paid plans)*
+- **Persistent or fresh sessions** — keep cookies and storage between launches, or start clean every time
 
 ---
 
 ## Browser Fingerprinting
 
-**Every profile gets a unique, deterministic fingerprint.** Same profile name always produces the same fingerprint. Spoof platform, GPU, WebRTC, timezone, locale, language, CPU cores, RAM, screen resolution, audio context, and fonts.
+**Every profile gets a stable fingerprint from its own seed**, so it looks like the same device every time you open it — and different from every other profile. Powered by the [CloakBrowser](https://github.com/CloakHQ/CloakBrowser) engine.
 
-- **Deterministic seeds** — SHA-256 based, persistent per profile name
-- **Platform spoofing** — Windows, macOS, Linux with matching GPU strings
-- **WebRTC IP spoofing** — automatically matches your proxy exit IP
-- **Hardware emulation** — CPU cores, RAM, screen resolution
-- **Timezone / locale spoofing** — per-profile configuration
-- **Audio context fingerprint** — unique per seed
-- **Font normalization** — anti-enumeration patches
-- **Session warm-up** — configure pre-visit sites for natural browsing patterns
-- **Fingerprint testing** — one-click test via [browserscan.net](https://browserscan.net)
+- **Platform** — Windows, macOS or Linux, with matching platform version and browser brand
+- **Hardware** — GPU vendor and renderer, CPU cores, device memory, storage quota
+- **Screen** — resolution, taskbar height and pixel ratio that fit the chosen platform
+- **Location** — timezone, language and geolocation, which can follow your proxy's country
+- **WebRTC** — the WebRTC IP is set to your proxy's exit IP, so your real IP isn't exposed
+- **Noise & fonts** — per-seed noise and a font set that fits the platform
+- **Session warm-up** — optionally visit a few sites before your start page for a more natural history
+- **Fingerprint test** — open a test page from the profile with one click
 
 ---
 
 ## Proxy Management
 
-**Add, edit, and test proxies per-profile.** Each profile can have its own proxy. Test connectivity with latency measurement and external IP resolution. WebRTC IP automatically syncs to your proxy.
-
-- **Proxy CRUD** — full lifecycle management
-- **Connectivity testing** — external IP resolution + latency measurement
-- **Health monitoring** — status tracking and alerts
-- **Per-profile assignment** — bind any proxy to any profile
-- **Bulk import** — import multiple proxies from text (supports 4 formats)
-- **WebRTC IP sync** — automatic matching
-
-### Bulk Import Formats
+- **HTTP and SOCKS5**, one per profile (or none)
+- **Connectivity test** — latency and exit IP, with the result shown on the proxy
+- **Tested on every launch** — if the proxy is down the launch stops, instead of quietly using your real connection
+- **Bulk import** — paste many proxies at once in any of these formats:
 
 ```
 protocol://host:port:username:password
-host:port or host:port:user:pass
-JSON object (one per line)
-label,protocol,host,port,username,password
+host:port   or   host:port:username:password
+{"host": "...", "port": 8080, ...}            (JSON, one per line)
+label,protocol,host,port,username,password    (CSV)
 ```
+
+---
+
+## Cookies
+
+- **Import and export** for running *and* stopped profiles
+- **Formats detected automatically** — ctrldlogin JSON, Playwright storage state, Cookie-Editor / EditThisCookie arrays, and Netscape `cookies.txt`
+- **Many profiles at once** — export or import a whole selection as one ZIP
+- **Team cookie sync** — share a team profile's cookies so whoever launches it starts signed in ([how it works](/teams#sharing-cookies))
 
 ---
 
 ## Extensions
 
-**Load custom extensions into any profile.** Upload CRX/ZIP files or import extensions directly from the Chrome Web Store by URL. Assign extensions per-profile and enable/disable them individually.
-
-- **CRX/ZIP upload** — custom extension support
-- **Chrome Web Store import** — import by URL
-- **Per-profile assignment** — enable/disable per profile
-- **Extension metadata** — icons, descriptions, versions
+- **Upload** CRX or ZIP files, or **import from the Chrome Web Store** by pasting its URL
+- **Per profile** — enable or disable each extension for each profile
+- Icons, names, descriptions and versions read from the extension itself
 
 ---
 
-## Organization
+## Automation
 
-**Keep your profiles organized.** Group profiles in folders, save and load configurations with templates, use tags for quick filtering, and power through workflows with keyboard shortcuts and context menus.
+**Rules that run on their own.** Each rule has a trigger and a list of steps.
 
-- **Folder system** — organize profiles into folders
-- **Template system** — save/load profile configurations as presets
-- **Tag system** — color-coded profile tags
-- **Multi-select** — bulk operations across profiles
-- **Context menus** — quick actions for power users
-- **Keyboard shortcuts** — navigate and manage faster
+- **Triggers** — every N minutes, daily at a set time, when a profile launches, stops, crashes, is paused or resumed, or manually with **Run now**
+- **Steps** — launch a profile, stop a profile, wait, assign a random proxy, export cookies
+- Pause and resume all automation from the Automation page; the number of rules depends on your [plan](/pricing)
 
 ---
 
 ## Team Collaboration
 
-**Share profiles with the people you work with.** Create a team, invite members with a role (Admin or Member), and share any local profile into a team folder as an independent, launchable snapshot — everyone gets their own browser session, never a shared login.
+**Share profiles with the people you work with.** Create a team, invite members with a role, and share any local profile into a team folder as an independent, launchable copy.
 
-- **Roles** — Owner, Admin, and Member with different management rights
-- **Team folders** — separate from your personal folders, shared with the whole team or specific people
-- **Shared proxies** — encrypted at rest; a Member can use one without ever seeing its password
-- **One person at a time** — a shared profile locks while someone's using it, with an Owner/Admin override
+- **Roles** — Owner, Admin and Member, with different management rights
+- **Team folders** — separate from your personal folders, visible to the whole team or to chosen people
+- **Shared proxies** — stored encrypted; a Member can use one without seeing its password
+- **One person at a time** — a shared profile locks while someone is using it, with an Owner/Admin force-stop
+- **Optional cookie sync** — everyone starts signed in to the same accounts
 
-See the full [Team Profile Sharing guide](/teams) for setup steps.
+See the full [Team Profile Sharing guide](/teams). Team size depends on your [plan](/pricing).
+
+---
+
+## Organization
+
+- **Folders** — group profiles; drag and drop profiles between folders
+- **Templates** — save a profile's settings as a reusable preset
+- **Tags and notes** — colour-coded tags and free-text notes on every profile
+- **Context menus and keyboard shortcuts** for common actions
 
 ---
 
 ## Interface
 
-**Modern, responsive UI with real-time updates.** Three-panel layout with folders sidebar, profile list, and detail panel. Dark and light themes. Live status updates without page refresh.
-
-- **Three-panel layout** — folders sidebar, profile list, detail panel
-- **Real-time updates** — live status changes without refreshing
-- **Dark/light themes** — switch to your preference
-- **Responsive design** — works across screen sizes
+- Sidebar with your folders and teams, a profile table or card view, and a detail panel
+- Live status updates while profiles start, stop or crash
+- **Dark and light themes**
+- **Logs** — view the app's log in **Settings → System**, or open its folder

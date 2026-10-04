@@ -6,102 +6,60 @@
 </p>
 
 <p align="center">
-  <strong>Desktop application for managing multiple isolated browser profiles with unique fingerprints.</strong>
+  <strong>Isolated browser profiles with unique fingerprints — for Windows, macOS and Linux.</strong>
 </p>
 
 <p align="center">
-  <a href="https://github.com/Gee2424/ctrldlogin/releases"><img alt="GitHub Release" src="https://img.shields.io/github/v/release/Gee2424/ctrldlogin?style=flat-square"></a>
-  <a href="https://github.com/Gee2424/ctrldlogin/releases"><img alt="Platform" src="https://img.shields.io/badge/platform-Windows%20%7C%20macOS%20%7C%20Linux-blue?style=flat-square"></a>
-  <a href="LICENSE"><img alt="License" src="https://img.shields.io/github/license/Gee2424/ctrldlogin?style=flat-square"></a>
-  <a href="https://gee2424.github.io/ctrldlogin/"><img alt="Docs" src="https://img.shields.io/badge/docs-vitepress-blue?style=flat-square"></a>
+  <a href="https://github.com/Gee2424/ctrldlogin/releases/latest"><img alt="Latest release" src="https://img.shields.io/github/v/release/Gee2424/ctrldlogin?style=flat-square"></a>
+  <a href="https://github.com/Gee2424/ctrldlogin/releases/latest"><img alt="Platform" src="https://img.shields.io/badge/platform-Windows%20%7C%20macOS%20%7C%20Linux-blue?style=flat-square"></a>
+  <a href="https://gee2424.github.io/ctrldlogin/"><img alt="Website" src="https://img.shields.io/badge/website-gee2424.github.io%2Fctrldlogin-blue?style=flat-square"></a>
 </p>
 
 ---
 
-**ctrldlogin** lets you create, manage, and launch multiple isolated browser profiles — each with a unique digital fingerprint. It handles proxy integration, platform spoofing, and anti-detection so every session looks like a real, distinct device.
-
-**Perfect for:**
-- Privacy-conscious users managing multiple identities
-- Freelancers handling client accounts
-- QA testers needing isolated browser environments
-- Anyone who needs separate browser profiles with distinct fingerprints
+**ctrldlogin** lets you run many separate browser identities from one desktop app. Each profile has its own fingerprint, proxy, cookies and storage, so every session looks like a distinct device. Share profiles with your team, automate routine tasks, and move cookies in and out in the formats you already use.
 
 <p align="center">
-  <img src="assets/screenshot.png" alt="ctrldlogin interface" width="720">
+  <img src="docs/public/screenshot.png" alt="ctrldlogin" width="760">
 </p>
-
----
 
 ## Download
 
-Get the latest builds on the [Releases page](https://github.com/Gee2424/ctrldlogin/releases).
+Get the latest version from **[Releases](https://github.com/Gee2424/ctrldlogin/releases/latest)**:
 
-| Platform | Format | Size |
-|----------|--------|------|
-| Linux | `.AppImage`, `.deb` | ~89 MB |
-| macOS | `.dmg`, `.app` | ~89 MB |
-| Windows | `.msi`, `.exe` | ~89 MB |
+| System | File |
+|--------|------|
+| Windows 10/11 (64-bit) | `ctrldlogin_<version>_x64-setup.exe` |
+| macOS (Apple Silicon) | `ctrldlogin_<version>_aarch64.dmg` |
+| Linux | `.AppImage`, `.deb` or `.rpm` |
 
-> The browser engine is downloaded automatically on first launch (~200 MB).
-
----
+The browser engine (~200 MB) downloads automatically the first time you launch a profile. The app isn't code-signed yet — see [Getting Started](https://gee2424.github.io/ctrldlogin/getting-started#installation) for the one-time Windows/macOS prompt.
 
 ## Features
 
-### Profile Management
-Create, edit, duplicate, or delete profiles. Track status (idle, running, crashed, paused). Organize with tags and notes. Search everything with full-text search. Launch, stop, delete, or assign proxies to multiple profiles at once. Full audit trail of all actions.
-
-### Browser Fingerprinting
-Each profile gets a deterministic fingerprint seed (same name = same fingerprint). Spoof platform (Windows, macOS, Linux) with matching GPU strings. WebRTC IP auto-matches your proxy exit IP. Emulate CPU cores, RAM, screen resolution, timezone, locale, and language. Audio context fingerprinting and font normalization included. Configurable session warm-up pages and one-click fingerprint testing via [browserscan.net](https://browserscan.net).
-
-### Proxy Management
-Add proxies and assign them per-profile. Test connectivity with latency measurement and external IP resolution. WebRTC IP syncs automatically to your proxy.
-
-### Extensions
-Upload CRX/ZIP files or import extensions directly from the Chrome Web Store by URL. Assign extensions per-profile and enable/disable individually.
-
-### Organization
-Group profiles in folders. Save and load profile configurations with templates. Keyboard shortcuts and context menus for power users.
-
-### Interface
-Modern dark/light themed UI with a three-panel layout (folders, profiles, details). Real-time updates via WebSocket.
-
----
-
-## Quick Start
-
-1. Download the appropriate package for your OS from the [Releases page](https://github.com/Gee2424/ctrldlogin/releases)
-2. Install and launch the application
-3. Create your first profile and configure its fingerprint
-4. Assign a proxy (optional) and launch the profile
-
-See the [Getting Started Guide](docs/getting-started.md) for a detailed walkthrough.
-
----
-
-## Documentation
-
-Full documentation at **[gee2424.github.io/ctrldlogin](https://gee2424.github.io/ctrldlogin/)**
-
-- [Getting Started Guide](docs/getting-started.md)
-- [Feature Overview](docs/features.md)
-- [API Reference](docs/api-guide.md)
-- [FAQ](docs/faq.md)
-- [Privacy Policy](docs/privacy.md)
-- [Terms of Service](docs/terms.md)
-- [Refund Policy](docs/refund.md)
-- [Changelog](CHANGELOG.md)
-
----
+- **Profiles** — create, clone, reset, search, organise in folders; bulk actions; Trash
+- **Fingerprinting** — platform, browser brand, GPU, CPU, memory, screen, timezone, language, location and WebRTC IP per profile (CloakBrowser engine)
+- **Proxies** — HTTP/SOCKS5, bulk import, connectivity test; launches stop if the proxy fails
+- **Cookies** — import/export JSON, Playwright, Cookie-Editor, Netscape; ZIP for many profiles
+- **Teams** — share profiles with roles and per-person access, shared proxies, optional cookie sync
+- **Automation** — rules on a schedule, an interval or profile events
+- **Extensions** — CRX/ZIP upload or Chrome Web Store import, per profile
+- **Local API** — script it and drive profiles with Playwright over CDP
 
 ## Pricing
 
-ctrldlogin has a free tier and three paid tiers — **Starter** ($3/mo), **Pro** ($6/mo), and **Business** ($9/mo) — each raising limits on profiles, proxies, extensions, devices, and team seats. See the app's Settings for current details.
+Free plan with 15 profiles, no account needed. Paid plans — **Starter $3**, **Pro $6**, **Business $9** per month (or 10× per year) — raise the limits and add the activity log, pause/resume and cloning. Paid in Bitcoin from inside the app. See **[Pricing](https://gee2424.github.io/ctrldlogin/pricing)**.
+
+## Documentation
+
+**[gee2424.github.io/ctrldlogin](https://gee2424.github.io/ctrldlogin/)** — [Getting Started](https://gee2424.github.io/ctrldlogin/getting-started) · [Features](https://gee2424.github.io/ctrldlogin/features) · [Teams](https://gee2424.github.io/ctrldlogin/teams) · [FAQ](https://gee2424.github.io/ctrldlogin/faq) · [Changelog](https://gee2424.github.io/ctrldlogin/changelog) · [Privacy](https://gee2424.github.io/ctrldlogin/privacy) · [Terms](https://gee2424.github.io/ctrldlogin/terms) · [Refunds](https://gee2424.github.io/ctrldlogin/refund)
+
+## Support
+
+Report problems on the [issue tracker](https://github.com/Gee2424/ctrldlogin/issues) or email **gkm18686@gmail.com**.
 
 ## License
 
-ctrldlogin is closed-source, commercial software distributed under a paid subscription model. See the [Software License Agreement](LICENSE) and [Terms of Service](docs/terms.md) for the terms governing your use of the Software.
+ctrldlogin is closed-source commercial software. See the [Software License Agreement](LICENSE) and the [Terms of Service](https://gee2424.github.io/ctrldlogin/terms).
 
----
-
-<p align="center"><em>This application is intended for legitimate privacy and testing purposes only.</em></p>
+<p align="center"><em>For legitimate privacy, testing and account-management use only.</em></p>

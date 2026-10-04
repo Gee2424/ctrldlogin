@@ -221,10 +221,7 @@
 }
 
 .vp-doc td:first-child {
-  font-family: var(--vp-font-family-mono);
-  font-size: 13px;
-  font-weight: 500;
-  color: var(--vp-c-brand-1);
+  font-weight: 600;
   white-space: nowrap;
 }
 
@@ -315,4 +312,14 @@
   border-top: 1px solid var(--vp-c-border) !important;
   padding-top: 24px !important;
   padding-bottom: 24px !important;
+}
+
+/* Small screens: let wide tables (pricing, downloads, API lists) scroll inside
+   their own box instead of pushing the whole page sideways. */
+@media (max-width: 768px) {
+  .vp-doc table {
+    display: block !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch;
+  }
 }

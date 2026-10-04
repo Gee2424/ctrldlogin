@@ -1,168 +1,167 @@
-# API Reference
+# Local API
 
-The backend exposes a REST API and WebSocket server. All endpoints return JSON and support optional Bearer token authentication via `Authorization: Bearer <token>` header.
+ctrldlogin's interface talks to a local REST + WebSocket API, and you can use the same API to script the app — for example to launch profiles from your own tools and drive them with Playwright or Puppeteer.
 
-**Base URL (development):** `http://127.0.0.1:7331/api`  
-**Base URL (production):** Dynamic port (auto-detected)  
-**Auto-generated docs:** Swagger UI at `/docs`, ReDoc at `/redoc`
+- **Address:** the API listens only on your own computer (`127.0.0.1`). In the desktop app the port is picked at startup; in a development run it is `7331`.
+- **Interactive docs:** open `/docs` (Swagger UI) or `/redoc` on the same address for every endpoint with its request and response schemas.
+- **Format:** JSON in and out. Errors use standard HTTP status codes with a `detail` message.
+- **Plan limits apply** — e.g. creating more profiles than your plan allows returns `403`.
 
----
+## Driving a profile with Playwright
+
+Launch a profile, then connect to its browser over CDP:
+
+```python
+import requests
+from playwright.sync_api import sync_playwright
+
+API = "http://127.0.0.1:7331/api"          # use the desktop app's port
+requests.post(f"{API}/profiles/client-a/launch").raise_for_status()
+ws = requests.get(f"{API}/profiles/client-a/cdp").json()   # CDP connection details
+
+with sync_playwright() as p:
+    browser = p.chromium.connect_over_cdp(ws["cdp_ws_url"] or ws["cdp_http_url"])
+    page = browser.contexts[0].pages[0]
+    page.goto("https://browserscan.net")
+```
 
 ## Profiles
 
-**25 endpoints** for managing browser profiles.
-
-### CRUD Operations
-
-| Method | Path | Purpose |
-|--------|------|---------|
-| `GET` | `/api/profiles` | List all profiles with computed status fields |
-| `POST` | `/api/profiles` | Create new profile with fingerprint config |
-| `PUT` | `/api/profiles/{name}` | Update existing profile configuration |
-| `DELETE` | `/api/profiles/{name}` | Permanently delete profile and data directory |
-| `GET` | `/api/profiles/search` | Full-text search by name, notes, tags, proxy |
-| `GET` | `/api/profiles/{name}/activity` | Get profile activity log |
-
-### Lifecycle Management
-
-| Method | Path | Purpose |
-|--------|------|---------|
-| `POST` | `/api/profiles/{name}/launch` | Launch browser with proxy test and crash monitoring |
-| `POST` | `/api/profiles/{name}/stop` | Gracefully stop running browser process |
-| `POST` | `/api/profiles/{name}/pause` | Save session snapshot and stop browser |
-| `POST` | `/api/profiles/{name}/resume` | Restore session snapshot and launch browser |
-| `POST` | `/api/profiles/{name}/reset` | Wipe browser data directory |
-| `POST` | `/api/profiles/{name}/clone` | Duplicate profile with new fingerprint seed |
-| `POST` | `/api/profiles/{name}/fingerprint-test` | Get fingerprint testing URLs |
-
-### Cookie Management
-
-| Method | Path | Purpose |
-|--------|------|---------|
-| `GET` | `/api/profiles/{name}/cookies/export` | Export cookies as JSON array |
-| `POST` | `/api/profiles/{name}/cookies/import` | Import cookies from JSON array |
-
-### Batch Operations
-
-| Method | Path | Purpose |
-|--------|------|---------|
-| `POST` | `/api/profiles/batch/launch` | Launch multiple profiles simultaneously |
-| `POST` | `/api/profiles/batch/stop` | Stop multiple running profiles |
+| Method | Path | What it does |
+|---|---|---|
+| `GET` | `/api/profiles` | List all profiles with current status |
+| `POST` | `/api/profiles` | Create a new profile |
 | `POST` | `/api/profiles/batch/delete` | Delete multiple profiles |
-| `POST` | `/api/profiles/batch/proxy` | Assign/remove proxy from multiple profiles |
+| `POST` | `/api/profiles/batch/launch` | Launch several profiles |
+| `POST` | `/api/profiles/batch/proxy` | Assign or remove proxy from multiple profiles |
+| `POST` | `/api/profiles/batch/stop` | Stop several running profiles |
 | `POST` | `/api/profiles/batch/tag` | Add or remove tags on multiple profiles |
-
-### Trash / Soft Delete
-
-| Method | Path | Purpose |
-|--------|------|---------|
-| `PUT` | `/api/profiles/{name}/trash` | Move profile to trash (soft delete) |
-| `POST` | `/api/profiles/{name}/restore` | Restore profile from trash |
+| `GET` | `/api/profiles/consistency` | Check that saved profiles and their data folders match |
+| `POST` | `/api/profiles/consistency/cleanup` | Repair mismatches between saved profiles and data folders |
+| `POST` | `/api/profiles/cookies/export-zip` | Bundle several profiles' cookies into one ZIP (one file each + manifest.json) |
+| `POST` | `/api/profiles/cookies/import-zip` | Import a cookie ZIP, matching each file to the profile of the same name |
+| `GET` | `/api/profiles/search` | Search profiles by name, notes, tags, or proxy label using FTS5 |
 | `GET` | `/api/profiles/trash` | List all profiles in trash |
 | `DELETE` | `/api/profiles/trash` | Permanently delete all trashed profiles |
-
----
+| `GET` | `/api/profiles/{name}` | Get a single profile by name |
+| `PUT` | `/api/profiles/{name}` | Update an existing profile |
+| `DELETE` | `/api/profiles/{name}` | Delete a profile |
+| `GET` | `/api/profiles/{name}/activity` | Get profile activity log |
+| `GET` | `/api/profiles/{name}/cdp` | Return CDP WebSocket URL for a running profile |
+| `POST` | `/api/profiles/{name}/clone` | Clone an existing profile |
+| `GET` | `/api/profiles/{name}/cookies/export` | Export a profile's cookies |
+| `POST` | `/api/profiles/{name}/cookies/import` | Import cookies into a profile |
+| `GET` | `/api/profiles/{name}/cookies/status` | How many cookies this profile has right now, without exporting them |
+| `GET` | `/api/profiles/{name}/extensions` | List all extensions assigned to a profile |
+| `POST` | `/api/profiles/{name}/extensions` | Assign an extension to a profile |
+| `PUT` | `/api/profiles/{name}/extensions/{ext_id}` | Enable or disable an extension on a profile |
+| `DELETE` | `/api/profiles/{name}/extensions/{ext_id}` | Unassign an extension from a profile |
+| `POST` | `/api/profiles/{name}/fingerprint-test` | Open fingerprint testing URL in the running profile via CDP |
+| `POST` | `/api/profiles/{name}/launch` | Launch a profile (tests its proxy first) |
+| `POST` | `/api/profiles/{name}/pause` | Pause a running profile - save session and stop browser |
+| `POST` | `/api/profiles/{name}/reset` | Reset profile data (wipe Chromium data directory) |
+| `POST` | `/api/profiles/{name}/restore` | Restore profile from trash |
+| `POST` | `/api/profiles/{name}/resume` | Resume a paused profile - restore session and launch browser |
+| `POST` | `/api/profiles/{name}/stop` | Stop a running profile |
+| `PUT` | `/api/profiles/{name}/trash` | Move profile to trash (soft delete) |
 
 ## Proxies
 
-**6 endpoints** for proxy configuration and testing.
-
-| Method | Path | Purpose |
-|--------|------|---------|
-| `GET` | `/api/proxies` | List all proxy configurations |
-| `POST` | `/api/proxies` | Create new proxy configuration |
-| `PUT` | `/api/proxies/{id}` | Update existing proxy |
-| `DELETE` | `/api/proxies/{id}` | Delete proxy configuration |
-| `POST` | `/api/proxies/{id}/test` | Test connectivity and resolve external IP |
-| `POST` | `/api/proxies/bulk-import` | Import multiple proxies from text |
-
----
-
-## Extensions
-
-**4 endpoints** for extension library management.
-
-| Method | Path | Purpose |
-|--------|------|---------|
-| `GET` | `/api/extensions` | List all extensions with metadata |
-| `POST` | `/api/extensions/upload` | Upload CRX/ZIP file |
-| `POST` | `/api/extensions/import-from-store` | Import from Chrome Web Store URL |
-| `DELETE` | `/api/extensions/{id}` | Delete extension and remove from all profiles |
-
----
+| Method | Path | What it does |
+|---|---|---|
+| `GET` | `/api/proxies` | List all proxies |
+| `POST` | `/api/proxies` | Create a new proxy |
+| `POST` | `/api/proxies/bulk-import` | Import multiple proxies from a text string |
+| `PUT` | `/api/proxies/{pid}` | Update an existing proxy |
+| `DELETE` | `/api/proxies/{pid}` | Delete a proxy |
+| `POST` | `/api/proxies/{pid}/test` | Test proxy connectivity and resolve external IP |
 
 ## Folders
 
-**5 endpoints** for profile organization.
-
-| Method | Path | Purpose |
-|--------|------|---------|
+| Method | Path | What it does |
+|---|---|---|
 | `GET` | `/api/folders` | List all folders with profile counts |
-| `GET` | `/api/folders/{id}` | Get single folder details |
-| `POST` | `/api/folders` | Create new folder |
-| `PUT` | `/api/folders/{id}` | Update folder name or order index |
-| `DELETE` | `/api/folders/{id}` | Delete folder |
-
----
+| `POST` | `/api/folders` | Create a new folder |
+| `GET` | `/api/folders/{folder_id}` | Get a single folder by ID |
+| `PUT` | `/api/folders/{folder_id}` | Update folder name or order |
+| `DELETE` | `/api/folders/{folder_id}` | Delete a folder. Profiles will have folder_id set to NULL |
 
 ## Templates
 
-**4 endpoints** for reusable profile configurations.
+| Method | Path | What it does |
+|---|---|---|
+| `GET` | `/api/templates` | List all templates |
+| `POST` | `/api/templates` | Save current fingerprint config as a template |
+| `GET` | `/api/templates/{template_id}` | Get a single template by ID |
+| `DELETE` | `/api/templates/{template_id}` | Delete a template |
 
-| Method | Path | Purpose |
-|--------|------|---------|
-| `GET` | `/api/templates` | List all fingerprint templates |
-| `GET` | `/api/templates/{id}` | Get single template configuration |
-| `POST` | `/api/templates` | Save current config as template |
-| `DELETE` | `/api/templates/{id}` | Delete template |
+## Extensions
 
----
+| Method | Path | What it does |
+|---|---|---|
+| `GET` | `/api/extensions` | List all extensions with profile assignment count |
+| `GET` | `/api/extensions/downloads/active` | Get list of extension IDs currently being downloaded |
+| `POST` | `/api/extensions/import-from-store` | Download extension from Chrome Web Store with progress reporting |
+| `POST` | `/api/extensions/upload` | Upload and unpack a CRX or ZIP file with progress reporting |
+| `DELETE` | `/api/extensions/{ext_id}` | Delete extension from library (cascades to all profiles) |
+| `GET` | `/api/extensions/{ext_id}/icon` | Serve extension icon from _meta cache |
+
+## Automation
+
+| Method | Path | What it does |
+|---|---|---|
+| `GET` | `/api/automation/engine` | Get Engine Status |
+| `POST` | `/api/automation/engine` | Set Engine Status |
+| `GET` | `/api/automation/rules` | List Rules |
+| `POST` | `/api/automation/rules` | Create Rule |
+| `PUT` | `/api/automation/rules/{rule_id}` | Update Rule |
+| `DELETE` | `/api/automation/rules/{rule_id}` | Delete Rule |
+| `POST` | `/api/automation/rules/{rule_id}/run` | Run Rule Once |
+| `GET` | `/api/automation/runs` | List Runs |
+
+## License
+
+| Method | Path | What it does |
+|---|---|---|
+| `GET` | `/api/license` | Get current license status and feature flags |
+| `DELETE` | `/api/license` | Deactivate the current license and revert to free tier |
+| `POST` | `/api/license/activate` | Activate a license key against the signed-in account |
+| `POST` | `/api/license/validate` | Re-check the active license with the license server now |
+
+## Billing
+
+| Method | Path | What it does |
+|---|---|---|
+| `GET` | `/api/billing/checkout-url` | Create a BTCPay checkout (crypto) for a tier; returns the hosted payment URL |
+| `GET` | `/api/billing/status` | Plan, paid-until date and license key — polled after opening checkout |
 
 ## System
 
-**4 endpoints** for system status and maintenance.
-
-| Method | Path | Purpose |
-|--------|------|---------|
-| `GET` | `/api/system` | Get browser engine version and status |
-| `GET` | `/api/running` | List currently running profile names |
-| `POST` | `/api/system/check-updates` | Check for browser engine updates |
-| `POST` | `/api/system/clear-cache` | Clear browser engine cache |
-
----
+| Method | Path | What it does |
+|---|---|---|
+| `GET` | `/api/running` | Get detailed info for currently running profiles |
+| `GET` | `/api/system` | Get system information including CloakBrowser binary status |
+| `POST` | `/api/system/check-updates` | Check for CloakBrowser updates |
+| `POST` | `/api/system/clear-cache` | Clear CloakBrowser cache |
+| `POST` | `/api/system/client-log` | Record an error from the UI so it shows up in the log viewer and diagnostics |
+| `GET` | `/api/system/diagnostics` | A ZIP of logs and system info to send when something isn't working |
+| `GET` | `/api/system/logs` | Recent log entries for the in-app log viewer |
+| `GET` | `/health` | Health check endpoint for monitoring and sidecar integration |
 
 ## WebSocket
 
-**Real-time events** for profile lifecycle updates.
+Connect to `ws://127.0.0.1:<port>/ws/<any-client-id>` to receive live events as JSON messages with a `type` field:
 
-| URL | Purpose |
-|-----|---------|
-| `ws://127.0.0.1:7331/ws/{client_id}` | Real-time profile lifecycle events |
+| Area | Events |
+|---|---|
+| Launch | `launch_progress`, `cdp_ready`, `profile_launched`, `profile_crashed`, `browser_crashed` |
+| Stop | `stop_start`, `stop_progress`, `stop_complete`, `profile_stopped`, `window_closed` |
+| Pause / resume | `pause_progress`, `profile_paused`, `resume_start`, `profile_resumed` |
+| Profiles | `profile_created`, `profile_updated`, `profile_deleted`, `profile_reset`, `profile_cloned` |
+| Proxies | `proxy_created`, `proxy_updated`, `proxy_deleted`, `proxy_tested` |
+| Extensions | `extension_added`, `extension_deleted`, `extension_upload_progress`, `extension_download_progress`, `extension_delete_progress`, `profile_extension_added`, `profile_extension_removed` |
+| Folders | `folder_created`, `folder_updated`, `folder_deleted` |
+| Teams | `shared_profile_force_stopped`, `cookie_sync_warning` |
+| Connection | `connected` |
 
-### Events
-
-| Event | Triggered | Key Fields |
-|-------|-----------|------------|
-| `connected` | Client connects | `client_id` |
-| `launch_start` | Launch initiated | `profile`, `timestamp` |
-| `launch_progress` | Stage updates | `profile`, `stage`, `message` |
-| `launch_complete` | Launch successful | `profile`, `pid`, `fp_seed` |
-| `profile_crashed` | Crashed within 15s | `profile`, `exit_code` |
-| `profile_stopped` | Browser stopped | `profile`, `timestamp` |
-| `profile_paused` | Profile paused | `profile`, `snapshot` |
-| `profile_resumed` | Profile resumed | `profile`, `pid` |
-| `profile_created` | New profile | `profile`, `os`, `fp_seed` |
-| `profile_updated` | Config modified | `profile`, `updated_fields` |
-| `profile_deleted` | Profile deleted | `profile`, `timestamp` |
-| `profile_reset` | Data wiped | `profile`, `timestamp` |
-| `profile_cloned` | Profile duplicated | `source_profile`, `new_profile` |
-| `proxy_tested` | Test completed | `proxy`, `ok`, `ms`, `ip` |
-| `proxy_created` | New proxy | `proxy`, `label`, `host`, `port` |
-| `proxy_updated` | Proxy modified | `proxy`, `updated_fields` |
-| `proxy_deleted` | Proxy deleted | `proxy`, `timestamp` |
-| `extension_uploaded` | File uploaded | `extension`, `name`, `source` |
-| `extension_imported` | Web Store import | `extension`, `name`, `url` |
-| `extension_deleted` | Extension deleted | `extension`, `timestamp` |
-| `folder_created` | New folder | `folder`, `name` |
-| `folder_updated` | Folder modified | `folder`, `data` |
-| `folder_deleted` | Folder deleted | `folder`, `timestamp` |
+Account, Teams and sign-in endpoints also exist on this API (`/api/auth`, `/api/teams`, `/api/worker`) — they pass through to the ctrldlogin server and need you to be signed in; see `/docs` for details.

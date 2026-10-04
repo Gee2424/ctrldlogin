@@ -1,6 +1,6 @@
 # Terms of Service
 
-**Last updated: 2026**
+**Last updated: October 2026**
 
 These Terms of Service ("Terms") govern your use of ctrldlogin (the "Software") and any related services provided by stuffules frameworks ("we", "us", "Licensor"). By downloading, installing, or using ctrldlogin, you agree to these Terms.
 
@@ -23,8 +23,10 @@ Some features (Teams, license activation, purchasing a subscription) require cre
 ## 3. Subscriptions and Billing
 
 - ctrldlogin offers a **Free** tier and three paid tiers — **Starter**, **Pro**, and **Business** — each with its own usage limits (profiles, proxies, extensions, devices, team seats, and more), described in the app and on our pricing page.
-- Paid subscriptions are billed on a recurring basis (monthly, unless otherwise stated) and processed by **Lemon Squeezy**, acting as merchant of record. Lemon Squeezy handles all payment card data directly — we never receive or store your card details.
-- Subscriptions renew automatically until cancelled. You can cancel anytime from within the app; your paid access continues until the end of the current billing period.
+- Paid plans are paid in **Bitcoin** through our own BTCPay Server checkout. We don't accept or store card details.
+- Each payment buys one period (one month or one year, as chosen at checkout). Nothing renews or is charged automatically: to continue, pay again before the period ends. After a period ends you keep paid features for a 3-day grace period, then the account returns to the Free tier.
+- Paying for the same plan early extends it; switching plans takes effect immediately and credits the unused part of your current plan.
+- Bitcoin payments are irreversible. Pay within the time shown on the invoice; a payment that arrives after the invoice expires isn't applied automatically (see the [Refund Policy](/refund)).
 - Tier limits, pricing, and features may change over time; we'll make reasonable efforts to communicate material changes in advance.
 - See our [Refund Policy](/refund) for details on refunds and cancellations.
 

@@ -2,144 +2,150 @@
 
 ## General
 
+### Do I need an account?
+
+No. The Free plan works without signing in. You only need an account to buy a paid plan or to use Teams.
+
 ### Where are my profiles and data stored?
 
-Profiles, configurations, and browser data are stored locally on your machine in the following locations:
+On your computer:
 
-| Platform | Data Directory |
-|----------|---------------|
-| Linux | `~/.local/share/ctrldlogin/` |
+| System | Data folder |
+|--------|-------------|
+| Windows | `%APPDATA%\ctrldlogin\` |
 | macOS | `~/Library/Application Support/ctrldlogin/` |
-| Windows | `%APPDATA%/ctrldlogin/` |
+| Linux | `~/.local/share/ctrldlogin/` |
 
-You can back up or migrate profiles by copying the entire directory.
-
-### How do I uninstall?
-
-**Linux (AppImage):** Delete the AppImage file and the data directory at `~/.local/share/ctrldlogin/`.
-
-**Linux (deb):** Run `sudo apt remove ctrldlogin`, then delete the data directory.
-
-**macOS:** Drag the app from Applications to Trash, then delete `~/Library/Application Support/ctrldlogin/`.
-
-**Windows:** Go to **Settings → Apps → Installed apps**, find ctrldlogin and uninstall, or delete the portable `.exe` and `%APPDATA%/ctrldlogin/` directory.
+Back up or move your profiles by copying this folder while the app is closed.
 
 ### Can I use ctrldlogin without a proxy?
 
-Yes. Fingerprinting works independently of proxies. Each profile gets a unique deterministic fingerprint regardless of whether a proxy is assigned. Proxies are optional and useful when you need to match the browser's IP address with the fingerprint's geographic profile.
+Yes. Each profile gets its own fingerprint whether or not it has a proxy. A proxy is useful when the profile's IP address should match its location, or when profiles must not share your IP.
 
-### Can I run multiple profiles at the same time?
+### Can I run several profiles at the same time?
 
-Yes. Each profile runs as its own isolated browser process. You can launch as many profiles as your system resources allow. Each profile has its own fingerprint, cookies, cache, and session data.
+Yes, as many as your computer can handle. Each runs in its own browser window with its own fingerprint, cookies, cache and storage.
 
-### Does the app work on my platform?
+### Which systems are supported?
 
-ctrldlogin supports Windows 10/11, macOS 12+, and Linux (glibc 2.31+). See the [getting started guide](/getting-started#system-requirements) for detailed requirements.
+Windows 10/11 (64-bit), Apple Silicon Macs, and 64-bit Linux with glibc 2.35+ (Ubuntu 22.04+, Debian 12+, Fedora 36+). See [System Requirements](/getting-started#system-requirements).
 
 ---
 
-## Installation & Setup
+## Installation & Updates
 
-### First launch is slow — is this normal?
+### Windows says "Windows protected your PC"
 
-Yes. The first time you launch ctrldlogin, it downloads the browser engine (~200 MB). This is a one-time download. Subsequent launches will be much faster.
+The app isn't code-signed yet. Click **More info → Run anyway**. You only need to do this once.
 
 ### macOS says the app is from an unidentified developer
 
-The app is not notarized by Apple. To open it:
-1. Open **System Settings → Privacy & Security**
-2. Scroll down to the **Security** section
-3. Click **Open Anyway** next to the ctrldlogin message
-4. Confirm in the dialog
+The app isn't notarized by Apple yet. Open **System Settings → Privacy & Security**, scroll to **Security**, click **Open Anyway** next to the ctrldlogin message and confirm. Only needed once.
 
-You only need to do this once.
+### Is there an Intel Mac version?
 
-### macOS — which download should I choose?
+Not at the moment — the macOS build is for Apple Silicon (M1 or newer).
 
-- **`_aarch64.dmg`** — for Apple Silicon Macs (M1, M2, M3, M4)
-- **`_amd64.dmg`** — for Intel-based Macs
+### The first launch of a profile is slow
 
-### The browser engine download fails or is stuck
+The first launch downloads the browser engine (~200 MB, one time). After that, profiles start quickly.
 
-Check your firewall or VPN — the download requires access to the browser engine CDN. If it consistently fails, try:
-- Disabling VPN temporarily
-- Checking disk space (500 MB+ required)
-- Running the app with administrator privileges on Windows
+### The browser engine download fails or gets stuck
+
+Check your firewall, VPN or proxy settings and that you have at least 1 GB free. The engine is downloaded from CloakBrowser's servers on GitHub.
 
 ### How do I update ctrldlogin?
 
-Currently updates are manual. Download the latest release from the [Releases page](https://github.com/Gee2424/ctrldlogin/releases) and install it over your existing installation. Your profiles and data will be preserved since they're stored in a separate data directory (see above).
+Download the latest version from the [Releases page](https://github.com/Gee2424/ctrldlogin/releases/latest) and install it over the old one. Your profiles and settings are kept.
+
+---
+
+## Billing and Plans
+
+### How do I pay?
+
+In **Settings → Billing**, choose a plan and **Monthly** or **Yearly**. A checkout page opens in your browser; pay the invoice in Bitcoin. Your plan switches on in the app by itself once the payment confirms. Full details on the [Pricing](/pricing) page.
+
+### Does my plan renew automatically?
+
+No. Each payment covers one month or one year, and nothing is charged automatically. Pay again to continue — paying early adds the new period after the current one, so you don't lose any days.
+
+### What happens when my plan ends?
+
+You keep paid features for a 3-day grace period. After that the account returns to the Free plan. Your profiles stay on your computer.
+
+### My invoice expired — was I charged?
+
+No. An expired invoice means no payment arrived. Choose your plan again to get a new invoice.
+
+### I paid, but the invoice had already expired
+
+A payment that arrives after the invoice expires isn't applied automatically. Email **gkm18686@gmail.com** with the invoice ID and we'll apply it or refund it — see the [Refund Policy](/refund).
+
+### I paid, but my plan hasn't switched on
+
+On-chain Bitcoin payments usually confirm within 10–60 minutes. Keep the app open (or reopen **Settings → Billing**) and it will switch on once confirmed. If it hasn't after a few hours, email us the invoice ID.
+
+### Can I change plans?
+
+Yes, at any time from **Settings → Billing**. The switch is immediate and the unused part of your current plan is credited against the new one.
+
+### How many computers can I use?
+
+1 on Starter, 2 on Pro, 3 on Business. To move your plan to another computer, choose **Deactivate license** in **Settings → Billing** on the old one, then sign in on the new one.
+
+### Does the app need to be online?
+
+Only to start a paid plan and to re-check it, which it does at startup and every 6 hours. If it can't reach our server, your plan keeps working for up to 7 days.
+
+---
+
+## Account
+
+### I forgot my password
+
+There's no self-service reset yet. Email **gkm18686@gmail.com** from the address you signed up with and we'll help you back in.
+
+### How do I delete my account?
+
+Email us from your account's address. Your profiles on your computer aren't affected.
 
 ---
 
 ## Profiles
 
-### A profile won't launch or crashes immediately
+### A profile won't launch or closes immediately
 
-Check the logs for error messages:
+Open **Settings → System** to see the log (the file is `ctrldlogin.log` in your [data folder](#where-are-my-profiles-and-data-stored)). Common causes:
+- The profile's proxy failed its test — launches stop rather than use your real connection
+- The browser engine didn't finish downloading — try again with a stable connection
+- Not enough free disk space
+- Antivirus blocking the browser
 
-| Platform | Log location |
-|----------|-------------|
-| Linux | `~/.local/share/ctrldlogin/logs/` |
-| macOS | `~/Library/Application Support/ctrldlogin/logs/` |
-| Windows | `%APPDATA%/ctrldlogin/logs/` |
+### How do I move profiles to another computer?
 
-Common causes:
-- Proxy connection failed (try launching without proxy)
-- Browser engine not fully downloaded (re-launch the app)
-- Insufficient disk space
-- Antivirus blocking browser processes
-
-### How do I transfer profiles to another computer?
-
-1. Locate your data directory (see above)
-2. Copy the entire `ctrldlogin` folder to the same path on the new machine
-3. Install ctrldlogin on the new machine
-4. Launch the app — your profiles will appear
-
-Make sure the same profile names are used, as fingerprints are derived from profile names.
+Copy the whole data folder (with the app closed) to the same location on the new computer, then install ctrldlogin there. Profile fingerprints come from their saved seeds, so they look the same on the new machine. You can also export and import cookies per profile, or many at once as a ZIP.
 
 ### Can I recover a deleted profile?
 
-If you used the **Trash** feature (soft delete), you can restore it from the trash. If permanently deleted, check whether you have a backup of the data directory.
+Yes, if it's still in **Trash** — restore it from there. Once Trash is emptied, only a backup of the data folder can bring it back.
 
 ---
 
 ## Fingerprinting
 
-### How is my fingerprint generated?
+### How is a profile's fingerprint generated?
 
-Each profile's fingerprint is deterministically generated from its name using a cryptographic hash. This means the same profile name always produces the same fingerprint. Changing the profile name will generate a completely new fingerprint.
+From the profile's seed, which is created when the profile is made and saved with it. The same seed always produces the same fingerprint, so a profile looks like the same device every time. Cloning a profile gives the copy a new seed.
 
-### Is the fingerprint consistent across browser sessions?
+### Can I check what websites see?
 
-Yes. The same profile will always produce the same fingerprint (same name = same seed). This is intentional — it makes each profile a consistent, reusable identity.
-
-### Can I verify my fingerprint is working?
-
-Launch a profile and visit [browserscan.net](https://browserscan.net) to see what websites detect about your browser. You can do this directly from the app via the **Fingerprint Test** button.
+Yes — use **Fingerprint test** on a profile, or visit [browserscan.net](https://browserscan.net) from inside it.
 
 ---
 
-## Troubleshooting
-
-### The app won't start
-
-- **Linux:** Ensure the AppImage is executable (`chmod +x`), or that dependencies for `.deb` are satisfied
-- **macOS:** Check Gatekeeper settings (see above)
-- **Windows:** Try running as administrator; check Windows Defender hasn't quarantined files
-
-### A proxy is not working
-
-- Verify the proxy credentials are correct
-- Test the proxy using the built-in connectivity test in the Proxies section
-- Ensure the proxy protocol matches (HTTP or SOCKS5)
-- Check that the proxy server is reachable from your network
+## Support
 
 ### I found a bug — how do I report it?
 
-Open an issue on the [GitHub issue tracker](https://github.com/Gee2424/ctrldlogin/issues). Include:
-- Your operating system and version
-- The ctrldlogin version you're using
-- Steps to reproduce the issue
-- Any relevant log files
+Open an issue on [GitHub](https://github.com/Gee2424/ctrldlogin/issues) or email **gkm18686@gmail.com**. Please include your system and ctrldlogin version, the steps to reproduce it, and the relevant part of the log (**Settings → System**).

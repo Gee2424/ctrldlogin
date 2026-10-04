@@ -1,21 +1,29 @@
 # Refund Policy
 
-**Last updated: 2026**
+**Last updated: October 2026**
 
-## Subscriptions
+Paid plans are bought with Bitcoin through our own BTCPay Server checkout. Each payment buys one period (one month or one year); nothing renews or is charged automatically, so there is never a subscription to cancel — if you don't pay again, your plan simply ends (after a 3-day grace period).
 
-- You can **cancel your subscription at any time** from within the app's Settings.
-- We do not offer refunds for partial billing periods. When you cancel, you keep access to your paid tier's features until the end of the period you already paid for — you just won't be charged again after that.
-- If you believe you were charged in error (e.g. a duplicate charge, or a charge after you'd already cancelled), contact us and we'll investigate and make it right.
+## What we refund
+
+We don't refund change-of-mind purchases or the unused part of a period. We **do** fix or refund mistakes, including:
+
+- **Double payments** — you paid twice for the same thing.
+- **Paid, but the plan didn't switch on** — and we can't apply it for you.
+- **Late payments** — your payment reached us after the invoice expired and we can't apply it to your account.
+- **Over-payments** — you sent noticeably more than the invoice asked for.
+
+In these cases we'll first try to apply the payment to your account. If that isn't possible or you'd rather have the money back, we refund **in Bitcoin** to an address you give us, for the USD value of the original invoice (minus the network fee for sending it).
+
+## Things to know about crypto payments
+
+- Bitcoin payments can't be reversed or charged back, so all refunds are handled directly by us — please contact us rather than your wallet provider.
+- If an invoice expires before you pay, nothing is charged; just start a new checkout.
 
 ## Exceptions
 
-Exceptions to this policy are handled case-by-case. If something went wrong on our end, or you have an unusual circumstance, reach out — we'd rather resolve it directly than have you stuck with a bad experience.
-
-## Payment Processor
-
-All payments are processed by **Lemon Squeezy**, acting as merchant of record for every purchase. Lemon Squeezy may have its own baseline buyer-protection process independent of this policy (for example, in cases of unauthorized card use) — see [Lemon Squeezy's own policies](https://www.lemonsqueezy.com/) for details on that.
+If something went wrong on our side or your situation is unusual, get in touch — we'd rather sort it out than leave you stuck.
 
 ## Contact
 
-To request a refund or ask about a charge: **gkm18686@gmail.com**
+Email **gkm18686@gmail.com** with your account email and the invoice ID (shown on the checkout page and in your wallet's payment details).
