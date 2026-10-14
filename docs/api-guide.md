@@ -1,11 +1,11 @@
 # Local API
 
-ctrldlogin's interface talks to a local REST + WebSocket API, and you can use the same API to script the app — for example to launch profiles from your own tools and drive them with Playwright or Puppeteer.
+ctrldlogin's interface talks to a local REST + WebSocket API, and you can use the same API to script the app, for example to launch profiles from your own tools and drive them with Playwright or Puppeteer.
 
 - **Address:** the API listens only on your own computer (`127.0.0.1`). In the desktop app the port is picked at startup; in a development run it is `7331`.
 - **Interactive docs:** open `/docs` (Swagger UI) or `/redoc` on the same address for every endpoint with its request and response schemas.
 - **Format:** JSON in and out. Errors use standard HTTP status codes with a `detail` message.
-- **Plan limits apply** — e.g. creating more profiles than your plan allows returns `403`.
+- **Plan limits apply:** for example, creating more profiles than your plan allows returns `403`.
 
 ## Driving a profile with Playwright
 
@@ -133,7 +133,7 @@ with sync_playwright() as p:
 | Method | Path | What it does |
 |---|---|---|
 | `GET` | `/api/billing/checkout-url` | Create a BTCPay checkout (crypto) for a tier; returns the hosted payment URL |
-| `GET` | `/api/billing/status` | Plan, paid-until date and license key — polled after opening checkout |
+| `GET` | `/api/billing/status` | Plan, paid-until date and license key; polled after opening checkout |
 
 ## System
 
@@ -164,4 +164,4 @@ Connect to `ws://127.0.0.1:<port>/ws/<any-client-id>` to receive live events as 
 | Teams | `shared_profile_force_stopped`, `cookie_sync_warning` |
 | Connection | `connected` |
 
-Account, Teams and sign-in endpoints also exist on this API (`/api/auth`, `/api/teams`, `/api/worker`) — they pass through to the ctrldlogin server and need you to be signed in; see `/docs` for details.
+Account, Teams and sign-in endpoints also exist on this API (`/api/auth`, `/api/teams`, `/api/worker`). They pass through to the ctrldlogin server and need you to be signed in; see `/docs` for details.

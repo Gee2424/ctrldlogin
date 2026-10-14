@@ -7,15 +7,15 @@ Teams need an account (free to create). The number of people per team depends on
 ## Creating a Team
 
 1. Open the **Team** section in the sidebar
-2. Sign in, or create an account — this doesn't change your local profiles
+2. Sign in, or create an account. This doesn't change your local profiles
 3. Click **Create Team** and give it a name
-4. Click **Invite** to generate an invite code and send it to a teammate — they enter it under **Have an invite code?** to join
+4. Click **Invite** to generate an invite code and send it to a teammate. They enter it under **Have an invite code?** to join
 
 ## Roles
 
 | Role | Can do |
 |------|--------|
-| **Owner** | Everything — manage members, folders, profiles, proxies, access and cookie sharing |
+| **Owner** | Everything: manage members, folders, profiles, proxies, access and cookie sharing |
 | **Admin** | Same as Owner for folders, profiles, proxies, access and cookie sharing; can invite members (not admins); can't remove the Owner or other Admins |
 | **Member** | Launch profiles they have access to; share their own local profiles into the team; can't manage proxies or other people's access |
 
@@ -31,9 +31,9 @@ Right-click any local profile and choose **Share to team**. This creates a copy 
 
 Optionally, a shared profile can carry its **cookies**, so whoever launches it starts signed in to the same accounts.
 
-- **When sharing:** Owners and Admins can tick **Also share this profile's cookies with the team** in *Share to team*. (The profile needs cookies first — launch it, sign in, then stop it.)
+- **When sharing:** Owners and Admins can tick **Also share this profile's cookies with the team** in *Share to team*. (The profile needs cookies first: launch it, sign in, then stop it.)
 - **Later:** open the profile's **Manage** dialog and switch **Team cookies** on or off. Switching it off stops syncing; **Clear synced cookies** deletes what's stored.
-- **How it stays current:** when someone launches the profile, the latest shared cookies are loaded first. When they stop it or close the window — and every few minutes while it runs — the cookies are saved back for the team. Problems syncing never block launching or stopping.
+- **How it stays current:** when someone launches the profile, the latest shared cookies are loaded first. When they stop it or close the window, and every few minutes while it runs, the cookies are saved back for the team. Problems syncing never block launching or stopping.
 - **Who sees it:** anyone who can launch the profile is signed in as that account. Only share profiles whose accounts you mean the whole team to use.
 - **Where they're stored:** shared cookies are kept on the ctrldlogin server so the team can use them. See the [Privacy Policy](/privacy#teams).
 

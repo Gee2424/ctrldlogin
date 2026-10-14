@@ -6,15 +6,15 @@ ctrldlogin is built to keep your data on your own computer. This page explains w
 
 ## On Your Computer
 
-Your profiles and everything in them stay on your computer and are **not uploaded** — unless you choose to share a profile with a team (see [Teams](#teams)).
+Your profiles and everything in them stay on your computer and are **not uploaded**, unless you choose to share a profile with a team (see [Teams](#teams)).
 
 | Data | Stored locally | Sent to us |
 |------|:---:|:---:|
-| Profile settings and fingerprints | ✅ | ❌ |
-| Cookies, history, cache, local storage | ✅ | ❌ (only for team profiles with cookie sharing on) |
-| Proxy details and passwords | ✅ | ❌ (only proxies you share with a team) |
-| Extensions, folders, templates, tags, notes | ✅ | ❌ |
-| App log | ✅ | ❌ |
+| Profile settings and fingerprints | Yes | No |
+| Cookies, history, cache, local storage | Yes | No (only for team profiles with cookie sharing on) |
+| Proxy details and passwords | Yes | No (only proxies you share with a team) |
+| Extensions, folders, templates, tags, notes | Yes | No |
+| App log | Yes | No |
 
 Storage locations are listed in the [FAQ](/faq#where-are-my-profiles-and-data-stored).
 
@@ -45,7 +45,7 @@ Our server also records the country your connection comes from (provided by Clou
 
 ## Teams
 
-If you use Teams, we store your teams, members' email addresses and roles, invites, and the profiles and folders you share (their fingerprint settings and names — not their browsing data).
+If you use Teams, we store your teams, members' email addresses and roles, invites, and the profiles and folders you share (their fingerprint settings and names, not their browsing data).
 
 - **Shared proxies** are stored encrypted, and Members can use them without seeing the password.
 - **Shared cookies:** if an Owner or Admin turns on cookie sharing for a team profile, that profile's cookies are uploaded so teammates start signed in. They are stored in our database, which our host (Cloudflare) encrypts at rest; we don't currently add a second layer of encryption to them. Anyone in the team with access to that profile can use them. Turning cookie sharing off stops syncing; to delete the stored cookies, an Owner or Admin clicks **Clear synced cookies** in the profile's **Manage** dialog. They're also deleted when the profile is removed from the team.
@@ -68,13 +68,13 @@ We don't sell your data or share it with anyone else, except where the law requi
 
 ## Your Choices
 
-- **Use it without an account** — the Free plan needs no sign-in.
-- **Statistics** — leave **Analytics** off (the default), or turn it off in **Settings → General**.
-- **Delete local data** — uninstall the app and delete the data folder:
+- **Use it without an account:** the Free plan needs no sign-in.
+- **Statistics:** leave **Analytics** off (the default), or turn it off in **Settings → General**.
+- **Delete local data:** uninstall the app and delete the data folder:
   - **Windows:** `rmdir /s %APPDATA%\ctrldlogin`
   - **macOS:** `rm -rf ~/Library/Application\ Support/ctrldlogin`
   - **Linux:** `rm -rf ~/.local/share/ctrldlogin`
-- **Delete your account** — email us from your account's address and we'll delete your account and its server-side data (payment records may be kept where the law requires).
+- **Delete your account:** email us from your account's address and we'll delete your account and its server-side data (payment records may be kept where the law requires).
 
 ## Contact
 

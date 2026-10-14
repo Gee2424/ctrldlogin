@@ -44,7 +44,7 @@ The app isn't notarized by Apple yet. Open **System Settings → Privacy & Secur
 
 ### Is there an Intel Mac version?
 
-Not at the moment — the macOS build is for Apple Silicon (M1 or newer).
+Not at the moment. The macOS build is for Apple Silicon (M1 or newer).
 
 ### The first launch of a profile is slow
 
@@ -68,19 +68,19 @@ In **Settings → Billing**, choose a plan and **Monthly** or **Yearly**. A chec
 
 ### Does my plan renew automatically?
 
-No. Each payment covers one month or one year, and nothing is charged automatically. Pay again to continue — paying early adds the new period after the current one, so you don't lose any days.
+No. Each payment covers one month or one year, and nothing is charged automatically. Pay again to continue. Paying early adds the new period after the current one, so you don't lose any days.
 
 ### What happens when my plan ends?
 
 You keep paid features for a 3-day grace period. After that the account returns to the Free plan. Your profiles stay on your computer.
 
-### My invoice expired — was I charged?
+### My invoice expired. Was I charged?
 
 No. An expired invoice means no payment arrived. Choose your plan again to get a new invoice.
 
 ### I paid, but the invoice had already expired
 
-A payment that arrives after the invoice expires isn't applied automatically. Email **gkm18686@gmail.com** with the invoice ID and we'll apply it or refund it — see the [Refund Policy](/refund).
+A payment that arrives after the invoice expires isn't applied automatically. Email **gkm18686@gmail.com** with the invoice ID and we'll apply it or refund it. See the [Refund Policy](/refund).
 
 ### I paid, but my plan hasn't switched on
 
@@ -117,8 +117,8 @@ Email us from your account's address. Your profiles on your computer aren't affe
 ### A profile won't launch or closes immediately
 
 Open **Settings → System** to see the log (the file is `ctrldlogin.log` in your [data folder](#where-are-my-profiles-and-data-stored)). Common causes:
-- The profile's proxy failed its test — launches stop rather than use your real connection
-- The browser engine didn't finish downloading — try again with a stable connection
+- The profile's proxy failed its test, and launches stop rather than use your real connection
+- The browser engine didn't finish downloading. Try again with a stable connection
 - Not enough free disk space
 - Antivirus blocking the browser
 
@@ -128,7 +128,7 @@ Copy the whole data folder (with the app closed) to the same location on the new
 
 ### Can I recover a deleted profile?
 
-Yes, if it's still in **Trash** — restore it from there. Once Trash is emptied, only a backup of the data folder can bring it back.
+Yes, if it's still in **Trash**: restore it from there. Once Trash is emptied, only a backup of the data folder can bring it back.
 
 ---
 
@@ -140,12 +140,12 @@ From the profile's seed, which is created when the profile is made and saved wit
 
 ### Can I check what websites see?
 
-Yes — use **Fingerprint test** on a profile, or visit [browserscan.net](https://browserscan.net) from inside it.
+Yes. Use **Fingerprint test** on a profile, or visit [browserscan.net](https://browserscan.net) from inside it.
 
 ---
 
 ## Support
 
-### I found a bug — how do I report it?
+### How do I report a bug?
 
 Open an issue on [GitHub](https://github.com/Gee2424/ctrldlogin/issues) or email **gkm18686@gmail.com**. Please include your system and ctrldlogin version, the steps to reproduce it, and the relevant part of the log (**Settings → System**).

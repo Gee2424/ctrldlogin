@@ -6,7 +6,7 @@ These Terms of Service ("Terms") govern your use of ctrldlogin (the "Software") 
 
 ## 1. Acceptable Use
 
-ctrldlogin is a desktop application for managing multiple isolated browser profiles for legitimate purposes — privacy protection, QA/testing across distinct environments, managing separate client or business accounts, and similar lawful use cases.
+ctrldlogin is a desktop application for managing multiple isolated browser profiles for legitimate purposes, such as privacy protection, QA/testing across distinct environments, managing separate client or business accounts, and similar lawful use cases.
 
 **ctrldlogin is intended for legitimate privacy and testing purposes only.** You may not use the Software to:
 
@@ -22,7 +22,7 @@ Some features (Teams, license activation, purchasing a subscription) require cre
 
 ## 3. Subscriptions and Billing
 
-- ctrldlogin offers a **Free** tier and three paid tiers — **Starter**, **Pro**, and **Business** — each with its own usage limits (profiles, proxies, extensions, devices, team seats, and more), described in the app and on our pricing page.
+- ctrldlogin offers a **Free** tier and three paid tiers (**Starter**, **Pro** and **Business**), each with its own usage limits (profiles, proxies, extensions, devices, team seats, and more), described in the app and on our pricing page.
 - Paid plans are paid in **Bitcoin** through our own BTCPay Server checkout. We don't accept or store card details.
 - Each payment buys one period (one month or one year, as chosen at checkout). Nothing renews or is charged automatically: to continue, pay again before the period ends. After a period ends you keep paid features for a 3-day grace period, then the account returns to the Free tier.
 - Paying for the same plan early extends it; switching plans takes effect immediately and credits the unused part of your current plan.
@@ -32,7 +32,7 @@ Some features (Teams, license activation, purchasing a subscription) require cre
 
 ## 4. License to Use the Software
 
-Your right to use ctrldlogin is governed by the accompanying [Software License Agreement](https://github.com/Gee2424/ctrldlogin/blob/main/LICENSE) (EULA). In summary: it's a personal, non-transferable license tied to your active subscription tier — you may not redistribute, resell, or reverse-engineer the Software.
+Your right to use ctrldlogin is governed by the accompanying [Software License Agreement](https://github.com/Gee2424/ctrldlogin/blob/main/LICENSE) (EULA). In summary: it's a personal, non-transferable license tied to your active subscription tier. You may not redistribute, resell, or reverse-engineer the Software.
 
 ## 5. Your Data
 

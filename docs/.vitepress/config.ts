@@ -2,7 +2,7 @@ import { defineConfig } from 'vitepress'
 
 const RELEASES = 'https://github.com/Gee2424/ctrldlogin/releases/latest'
 const DESCRIPTION =
-  'Desktop app for managing isolated browser profiles — each with its own fingerprint, proxy and cookies. Teams, automation, cookie tools. Free plan; paid plans in Bitcoin.'
+  'Desktop app for managing isolated browser profiles, each with its own fingerprint, proxy and cookies. Teams, automation, cookie tools. Free plan; paid plans in Bitcoin.'
 
 export default defineConfig({
   title: 'ctrldlogin',
@@ -10,6 +10,7 @@ export default defineConfig({
   lang: 'en-US',
   base: '/',
   cleanUrls: true,
+  appearance: 'dark',
   lastUpdated: true,
 
   head: [
@@ -18,7 +19,7 @@ export default defineConfig({
     ['link', { rel: 'apple-touch-icon', href: '/logo.svg' }],
     ['meta', { name: 'theme-color', content: '#0f172a' }],
     ['meta', { property: 'og:type', content: 'website' }],
-    ['meta', { property: 'og:title', content: 'ctrldlogin — isolated browser profiles' }],
+    ['meta', { property: 'og:title', content: 'ctrldlogin | Isolated browser profiles' }],
     ['meta', { property: 'og:description', content: DESCRIPTION }],
     ['meta', { property: 'og:image', content: 'https://ctrldlogin.stuffules.site/screenshot.png' }],
     ['meta', { name: 'twitter:card', content: 'summary_large_image' }],
@@ -107,7 +108,7 @@ export default defineConfig({
 
     footer: {
       message:
-        'Commercial software. See the <a href="/ctrldlogin/terms">Terms of Service</a>, <a href="/ctrldlogin/privacy">Privacy Policy</a> and <a href="https://github.com/Gee2424/ctrldlogin/blob/main/LICENSE">License</a>.',
+        'Commercial software. See the <a href="/terms">Terms of Service</a>, <a href="/privacy">Privacy Policy</a> and <a href="https://github.com/Gee2424/ctrldlogin/blob/main/LICENSE">License</a>.',
       copyright: '© 2024–2026 stuffules frameworks',
     },
 

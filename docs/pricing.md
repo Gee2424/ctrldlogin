@@ -20,7 +20,7 @@ Start free, no account needed. Upgrade from inside the app when you need more; p
 | Pause & resume sessions | — | ✓ | ✓ | ✓ |
 | Clone profiles | — | ✓ | ✓ | ✓ |
 
-Everything else — fingerprinting, proxies and proxy testing, cookie import/export, extensions, folders, templates, Teams, automation — is included on every plan, up to the limits above.
+Everything else is included on every plan, up to the limits above: fingerprinting, proxies and proxy testing, cookie import/export, extensions, folders, templates, Teams and automation.
 
 ## How Paying Works
 
@@ -32,14 +32,14 @@ Everything else — fingerprinting, proxies and proxy testing, cookie import/exp
 **Good to know**
 
 - Prices are in USD; the Bitcoin amount is calculated when the invoice is created.
-- **If the invoice expires before you pay, nothing is charged** — just choose your plan again for a fresh invoice.
+- **If the invoice expires before you pay, nothing is charged.** Choose your plan again for a fresh invoice.
 - If you sent a payment and the invoice expired before it arrived, it won't apply automatically. [Email us](mailto:gkm18686@gmail.com) the invoice ID and we'll apply it by hand.
 - There are no card payments, no stored payment details and no automatic charges. See the [Refund Policy](/refund).
 
 ## Renewing and Changing Plans
 
-- **Each payment covers one period** — one month or one year. Nothing is charged automatically; to keep your plan, pay again.
-- **Renewing early is fine.** Paying for the same plan while it's still running adds credit that renews it when the current period ends — you don't lose any days.
+- **Each payment covers one period**, either one month or one year. Nothing is charged automatically; to keep your plan, pay again.
+- **Renewing early is fine.** Paying for the same plan while it's still running adds credit that renews it when the current period ends, so you don't lose any days.
 - **Switching plans** (up or down) takes effect right away, and the unused part of your current plan is credited against the new one.
 - **Grace period:** if your plan ends, you keep paid features for **3 more days** while you renew. After that the account returns to Free; your profiles stay on your computer, but anything over the Free limits can't be added to until you upgrade or tidy up.
 - **Settings → Billing** shows your plan and the date it runs until.
@@ -48,7 +48,7 @@ Everything else — fingerprinting, proxies and proxy testing, cookie import/exp
 
 A paid plan can be active on 1 (Starter), 2 (Pro) or 3 (Business) computers at once.
 
-- The plan turns on automatically on the computer you paid from. On another computer, sign in with the same account and open **Settings → Billing** — it activates there too, as long as you have a free device slot.
+- The plan turns on automatically on the computer you paid from. On another computer, sign in with the same account and open **Settings → Billing**. It activates there too, as long as you have a free device slot.
 - To move a plan to a new computer, choose **Deactivate license** on the old one first; that frees its slot.
 - The app re-checks your plan when it starts and every 6 hours. If it can't reach our server, your plan keeps working for up to 7 days offline.
 
